@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="common/header :: common-header" />
 
 <body>
@@ -7,8 +7,8 @@
     <br/><br/>
     <div class="container">
         <div class="row">
-
-            <h1>Welcome to Admin Area from the Productstore</h1>
+            <h1 sec:authorize="isAnonymous()">Welcome, please Login.</h1>
+            <h1 sec:authorize="isAuthenticated()">Internal Area</h1>
         </div>
 
     </div>
