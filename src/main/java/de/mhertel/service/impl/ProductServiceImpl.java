@@ -21,6 +21,25 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.save(product);
     }
 
+    public void saveProduct(Product product) {
+        productRepository.save(product);
+    };
+
+    public void updateProduct(Product product) {
+        Product entity = productRepository.findOne(product.getId());
+        if(entity!=null){
+            entity.setTitle(product.getTitle());
+            entity.setDescription(product.getDescription());
+            entity.setCategory(product.getCategory());
+            entity.setInStockNumber(product.getInStockNumber());
+            entity.setListPrice(product.getListPrice());
+            entity.setShippingWeight(product.getShippingWeight());
+
+
+        }
+        productRepository.save(product);
+    };
+
     public List<Product> findAll() {
         return (List<Product>) productRepository.findAll();
     }

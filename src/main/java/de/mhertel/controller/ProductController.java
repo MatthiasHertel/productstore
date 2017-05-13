@@ -64,10 +64,11 @@ public class ProductController {
     }
 
     @RequestMapping(value="/update", method=RequestMethod.POST)
-    public String updateProductPost(@ModelAttribute("product") Product product, HttpServletRequest request) {
-        productService.save(product);
+    public String updateProductPost(@ModelAttribute("product") Product product, ModelMap model) {
+//        productService.save(product);
+        productService.updateProduct(product);
 
-
+        model.addAttribute("success", "Product " + product.getTitle()	+ " updated successfully");
         return "redirect:/products/detail?id="+ product.getId();
     }
 
