@@ -1,5 +1,8 @@
 package de.mhertel.domain;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -35,18 +38,14 @@ public class Product {
     @Column(nullable = true)
     private String updated_from;
 
-    private Date created;
-    private Date updated;
+    @CreationTimestamp
+    @Column(name = "create_date" , updatable = false)
+    private Date createDate;
 
-    @PrePersist
-    protected void onCreate() {
-        created = new Date();
-    }
+    @UpdateTimestamp
+    @Column(name = "modify_date")
+    private Date modifyDate;
 
-    @PreUpdate
-    protected void onUpdate() {
-        updated = new Date();
-    }
 
     public Long getId() {
         return id;
@@ -102,22 +101,6 @@ public class Product {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(Date updated) {
-        this.updated = updated;
     }
 
     public String getCreated_from() {
