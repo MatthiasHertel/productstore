@@ -1,0 +1,17 @@
+mysql:
+    image: mysql:latest
+    ports:
+        - 3306:3306
+    volumes_from:
+        - data
+    environment:
+        MYSQL_ROOT_PASSWORD: secret
+        MYSQL_DATABASE: productstore
+        MYSQL_USER: homestead
+        MYSQL_PASSWORD: secret
+
+data:
+    image: mysql:latest
+    volumes:
+        - /var/lib/mysql
+    command: "true"
