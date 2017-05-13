@@ -25,10 +25,10 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping(value = "/list" , method = RequestMethod.GET)
-    public String getAll(ModelMap model) {
+    public String list(ModelMap model) {
         List<Product> productList = productService.findAll();
         model.addAttribute("productList", productList);
-        return ("product/getAll");
+        return ("product/list");
     }
 
 
@@ -68,6 +68,19 @@ public class ProductController {
         productService.save(product);
 
 
-        return "redirect:/product/detail?id="+ product.getId();
+        return "redirect:/products/detail?id="+ product.getId();
+    }
+
+    @RequestMapping(value="/remove", method=RequestMethod.POST)
+    public String remove(
+            @ModelAttribute("id") String id, ModelMap model
+    ) {
+
+
+        productService.removeOne(Long.parseLong(id.substring(11)));
+        List<Product> productList = productService.findAll();
+        model.addAttribute("productList", productList);
+
+        return "redirect:/products/list";
     }
 }
