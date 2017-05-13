@@ -24,11 +24,15 @@ public class Product {
     private double shippingWeight;
 
     private double listPrice;
+    private int inStockNumber;
+
+
 
     private boolean active=true;
+    @Column(nullable = true)
 
     private String created_from;
-
+    @Column(nullable = true)
     private String updated_from;
 
     private Date created;
@@ -130,5 +134,13 @@ public class Product {
 
     public void setUpdated_from(String updated_from) {
         this.updated_from = updated_from;
+    }
+
+    public int getInStockNumber() {
+        return inStockNumber;
+    }
+
+    public void setInStockNumber(int inStockNumber) {
+        this.inStockNumber = inStockNumber;
     }
 }
