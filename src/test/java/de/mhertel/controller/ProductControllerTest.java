@@ -2,6 +2,7 @@ package de.mhertel.controller;
 
 import de.mhertel.domain.Product;
 import de.mhertel.service.ProductService;
+import de.mhertel.utility.ProductNotFoundException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -68,9 +69,9 @@ public class ProductControllerTest {
 
     }
 
-    @Test
+    @Test(expected = ProductNotFoundException.class)
     public void productInfo() throws Exception {
-
+        productController.productInfo(new Long(33), model);
     }
 
     @Test
@@ -82,7 +83,7 @@ public class ProductControllerTest {
     public void updateProductPost() throws Exception {
         when(result.hasErrors()).thenReturn(false);
         doNothing().when(productService).updateProduct(any(Product.class));
-        Assert.assertEquals(productController.updateProductPost(products.get(0), model), "redirect:/products/detail?id=1");
+        Assert.assertEquals(productController.updateProductPost(products.get(2), model), "redirect:/products/detail?id=1");
         Assert.assertEquals(model.get("success"), "Product Title1 updated successfully");
     }
 
@@ -113,8 +114,19 @@ public class ProductControllerTest {
         p2.setActive(true);
         p2.setInStockNumber(20);
 
+        Product p33 = new Product();
+        p33.setId(new Long(33));
+        p33.setTitle("Title33");
+        p33.setCategory("Category33");
+        p33.setDescription("description");
+        p33.setShippingWeight(330);
+        p33.setListPrice(330.0);
+        p33.setActive(true);
+        p33.setInStockNumber(330);
+
         products.add(p1);
         products.add(p2);
+        products.add(p33);
 
         return products;
     }

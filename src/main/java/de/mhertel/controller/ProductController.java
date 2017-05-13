@@ -2,6 +2,7 @@ package de.mhertel.controller;
 
 import de.mhertel.domain.Product;
 import de.mhertel.service.ProductService;
+import de.mhertel.utility.ProductNotFoundException;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,9 +49,15 @@ public class ProductController {
     }
 
     @RequestMapping("/detail")
-    public String productInfo(@RequestParam("id") Long id, Model model) {
-        Product product = productService.findOne(id);
-        model.addAttribute("product", product);
+    public String productInfo(@RequestParam("id") Long id, ModelMap model) throws Exception{
+
+
+        Product product = productService.findOne(new Long(id));
+
+        if (product == null) throw new ProductNotFoundException();
+
+
+
 
         return "product/detail";
     }
