@@ -56,6 +56,7 @@ public class ProductController {
 
         Product product = productService.findOne(new Long(id));
         if (product == null) throw new ProductNotFoundException();
+        model.addAttribute("product", product);
 
         return "product/detail";
     }
