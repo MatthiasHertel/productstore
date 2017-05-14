@@ -1,22 +1,20 @@
-
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
-<head th:replace="common/header :: common-header" />
+<html xmlns:th="http://www.w3.org/1000/xhtml" lang="en">
+<head th:replace="common/header :: common-header"/>
 
 <body>
-<div th:replace="common/header :: navbar" />
+<div th:replace="common/header :: navbar"/>
 
 <div class="container">
     <div class="row">
-        <form class="form-horizontal" th:action="@{/products/update}" method="post"
-              enctype="multipart/form-data">
+        <form class="form-horizontal" th:action="@{/products/update}" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend class="center-block">
                     Update Product Information<span style="font-size: small"> * is a
 							required field</span>
                 </legend>
 
-                <input hidden="hidden" name="id" th:value="${product.id}" />
+                <input hidden="hidden" name="id" th:value="${product.id}"/>
 
 
                 <!-- title -->
@@ -24,8 +22,7 @@
                     <label class="col-md-2 control-label" for="title">* Title</label>
 
                     <div class="col-md-8">
-                        <input type="text" name="title" class="form-control" id="title"
-                               th:value="${product.title}" required="required" placeholder="Title" />
+                        <input type="text" name="title" class="form-control" id="title" th:value="${product.title}" required="required" placeholder="Title"/>
                         <span class="help-block">Title of the product</span>
                     </div>
                 </div>
@@ -34,49 +31,34 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="description">Description</label>
                     <div class="col-md-8">
-							<textarea name="description" rows="5" class="form-control"
-                                      id="description" th:value="${product.description}" th:text="${product.description}"
-                                      placeholder="Description" />
+							<textarea name="description" rows="5" class="form-control" id="description" th:value="${product.description}" th:text="${product.description}" placeholder="Description"/>
                         <span class="help-block">Description of the product</span>
                     </div>
                 </div>
 
                 <!-- category -->
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="category">*
-                        Category</label>
+                    <label class="col-md-2 control-label" for="category">* Category</label>
                     <div class="col-md-8">
-                        <select th:value="${product.category}" id="category" name="category"
-                                class="form-control">
-                            <option value="" selected="selected" disabled="disabled">Please
-                                select an option...</option>
-                            <option value="Management"
-                                    th:selected="(${product.category}=='Management')">Management</option>
-                            <option value="Fiction"
-                                    th:selected="(${product.category}=='Fiction')">Fiction</option>
-                            <option value="Engineering"
-                                    th:selected="(${product.category}=='Engineering')">Engineering</option>
-                            <option value="Programming"
-                                    th:selected="(${product.category}=='Programming')">Programming</option>
-                            <option value="Arts &amp; Literature"
-                                    th:selected="(${product.category}=='Arts &amp; Literature')">Arts
-                                &amp; Literature</option>
+                        <select th:value="${product.category}" id="category" name="category" class="form-control">
+                            <option value="" selected="selected" disabled="disabled">Please select an option...</option>
+                            <option value="Management" th:selected="(${product.category}=='Management')">Management</option>
+                            <option value="Fiction" th:selected="(${product.category}=='Fiction')">Fiction</option>
+                            <option value="Engineering" th:selected="(${product.category}=='Engineering')">Engineering</option>
+                            <option value="Programming" th:selected="(${product.category}=='Programming')">Programming</option>
+                            <option value="Arts &amp; Literature" th:selected="(${product.category}=='Arts &amp; Literature')">Arts &amp; Literature</option>
                         </select>
                     </div>
                 </div>
 
 
-
                 <!-- shipping weight -->
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="shippingWeight">Shipping
-                        Weight</label>
+                    <label class="col-md-2 control-label" for="shippingWeight">Shipping Weight</label>
                     <div class="col-md-8">
                         <div class="input-group">
-                            <input th:value="${product.shippingWeight}" type="number" step="0.01"
-                                   name="shippingWeight" class="form-control" id="shippingWeight"
-                                   placeholder="Shipping Weight" /> <span
-                                class="input-group-addon">Ounces</span>
+                            <input th:value="${product.shippingWeight}" type="number" step="0.01" name="shippingWeight" class="form-control" id="shippingWeight" placeholder="Shipping Weight"/>
+                            <span class="input-group-addon">Ounces</span>
                         </div>
                         <span class="help-block">Shipping Weight of the product</span>
                     </div>
@@ -84,29 +66,23 @@
 
                 <!-- list price -->
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="listPrice">List
-                        Price</label>
+                    <label class="col-md-2 control-label" for="listPrice">List Price</label>
                     <div class="col-md-8">
                         <div class="input-group">
-                            <span class="input-group-addon">$</span> <input
-                                th:value="${product.listPrice}" type="number" name="listPrice" step="0.01"
-                                class="form-control" id="listPrice" placeholder="List Price" />
+                            <span class="input-group-addon">$</span>
+                            <input th:value="${product.listPrice}" type="number" name="listPrice" step="0.01" class="form-control" id="listPrice" placeholder="List Price"/>
                         </div>
                         <span class="help-block">List price of the product</span>
                     </div>
                 </div>
 
 
-
                 <!-- in stock number -->
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="inStockNumber">Number
-                        in stock</label>
+                    <label class="col-md-2 control-label" for="inStockNumber">Number in stock</label>
                     <div class="col-md-8">
-                        <input th:value="${product.inStockNumber}" type="number"
-                               name="inStockNumber" class="form-control" id="inStockNumber"
-                               placeholder="Number of in-stock copies" /> <span
-                            class="help-block">Number of in-stock copies</span>
+                        <input th:value="${product.inStockNumber}" type="number" name="inStockNumber" class="form-control" id="inStockNumber" placeholder="Number of in-stock copies"/>
+                        <span class="help-block">Number of in-stock copies</span>
                     </div>
                 </div>
 
@@ -114,14 +90,13 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="status">Status</label>
                     <div class="col-md-8">
-                        <label><input id="status" value="true" type="radio" name="active"
-                                      th:checked="${product.active}" /> Active </label> <label><input
-                            value="false" type="radio" name="active" th:checked="${!product.active}"/>
-                        Inactive </label> <span class="help-block">Whether the product is
+                        <label><input id="status" value="true" type="radio" name="active" th:checked="${product.active}"/> Active
+                        </label>
+                        <label><input value="false" type="radio" name="active" th:checked="${!product.active}"/> Inactive
+                        </label> <span class="help-block">Whether the product is
 								active or inactive</span>
                     </div>
                 </div>
-
 
 
                 <div class="form-group">
@@ -137,6 +112,6 @@
 </div>
 
 
-<div th:replace="common/header :: body-bottom-scripts" />
+<div th:replace="common/header :: body-bottom-scripts"/>
 </body>
 </html>
