@@ -28,22 +28,16 @@ public class ProductControllerTest {
 
     @Mock
     ProductService productService;
-
     @Mock
     BindingResult result;
     @Mock
     MockHttpServletRequest request = new MockHttpServletRequest();
-
-
     @InjectMocks
     ProductController productController;
-
     @Spy
     List<Product> products = new ArrayList<>();
-
     @Spy
     ModelMap model;
-
 
     @Before
     public void setUp() throws Exception {
@@ -51,48 +45,9 @@ public class ProductControllerTest {
         products = getProductList();
     }
 
-    @Test
-    public void list() throws Exception {
-        when(productService.findAll()).thenReturn(products);
-        Assert.assertEquals(productController.list(model), "product/list");
-        Assert.assertEquals(model.get("productList").toString(), products.toString());
-        verify(productService, atLeastOnce()).findAll();
-    }
-
-    @Test
-    public void addProduct() throws Exception {
-
-    }
-
-    @Test
-    public void addProductPost() throws Exception {
-
-    }
-
-    @Test(expected = ProductNotFoundException.class)
-    public void productInfo() throws Exception {
-        productController.productInfo(new Long(33), model);
-    }
-
-    @Test
-    public void updateProduct() throws Exception {
-
-    }
-
-    @Test
-    public void updateProductPost() throws Exception {
-        when(result.hasErrors()).thenReturn(false);
-        doNothing().when(productService).updateProduct(any(Product.class));
-        Assert.assertEquals(productController.updateProductPost(products.get(2), model), "redirect:/products/detail?id=1");
-        Assert.assertEquals(model.get("success"), "Product Title1 updated successfully");
-    }
-
-    @Test
-    public void remove() throws Exception {
-        doNothing().when(productService).removeOne(anyLong());
-        Assert.assertEquals(productController.remove("1234567823432", model), "redirect:/products/list");
-    }
-
+    /**
+     * Seeding some dummy-Data for tests.
+     */
     public List<Product> getProductList(){
         Product p1 = new Product();
         p1.setId(new Long(1));
@@ -127,9 +82,81 @@ public class ProductControllerTest {
         products.add(p1);
         products.add(p2);
         products.add(p33);
-
         return products;
     }
+
+
+    /**
+     * Test method - list all existing products.
+     * @throws Exception
+     */
+    @Test
+    public void listProducts() throws Exception {
+        when(productService.findAll()).thenReturn(products);
+        Assert.assertEquals(productController.listProducts(model), "product/list");
+        Assert.assertEquals(model.get("productList").toString(), products.toString());
+        verify(productService, atLeastOnce()).findAll();
+    }
+
+    /**
+     * Test method - get addProduct-View-Form.
+     * @throws Exception
+     */
+    @Test
+    public void addProduct() throws Exception {
+
+    }
+
+    /**
+     * Test method - post addProduct-View-Form.
+     * @throws Exception
+     */
+    @Test
+    public void addProductPost() throws Exception {
+
+    }
+
+    /**
+     * Test method - get expected Exception (product not found)
+     * @throws Exception
+     */
+    @Test(expected = ProductNotFoundException.class)
+    public void productDetail() throws Exception {
+        productController.productDetail(new Long(34), model);
+    }
+
+    /**
+     * Test method - get editProduct-View-Form.
+     * @throws Exception
+     */
+    @Test
+    public void updateProduct() throws Exception {
+
+    }
+
+    /**
+     * Test method - post editProduct-View-Form.
+     * @throws Exception
+     */
+    @Test
+    public void updateProductPost() throws Exception {
+        when(result.hasErrors()).thenReturn(false);
+        doNothing().when(productService).updateProduct(any(Product.class));
+        Assert.assertEquals(productController.updateProductPost(products.get(2), model), "redirect:/products/detail?id=1");
+        Assert.assertEquals(model.get("success"), "Product Title1 updated successfully");
+    }
+
+    /**
+     * Test method - removeProduct
+     * @throws Exception
+     */
+    @Test
+    public void removeProduct() throws Exception {
+        doNothing().when(productService).removeOne(anyLong());
+        Assert.assertEquals(productController.removeProduct("123456782343", model), "redirect:/products/list");
+    }
+
+
 
 
 }
