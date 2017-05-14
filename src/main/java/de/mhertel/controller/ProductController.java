@@ -22,11 +22,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/products")
 public class ProductController {
+
     @Autowired
     private ProductService productService;
 
     @RequestMapping(value = "/list" , method = RequestMethod.GET)
-    public String list(ModelMap model) {
+    public String listProducts(ModelMap model) {
+
         List<Product> productList = productService.findAll();
         model.addAttribute("productList", productList);
         return ("product/list");
@@ -35,6 +37,7 @@ public class ProductController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addProduct(Model model) {
+
         Product product = new Product();
         model.addAttribute("product", product);
         return "product/add";
@@ -42,28 +45,24 @@ public class ProductController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addProductPost(@ModelAttribute("product") Product product, HttpServletRequest request) {
-        productService.save(product);
 
+        productService.save(product);
 
         return "redirect:/products/list";
     }
 
     @RequestMapping("/detail")
-    public String productInfo(@RequestParam("id") Long id, ModelMap model) throws Exception{
-
+    public String productDetail(@RequestParam("id") Long id, ModelMap model) throws Exception{
 
         Product product = productService.findOne(new Long(id));
-
         if (product == null) throw new ProductNotFoundException();
-
-
-
 
         return "product/detail";
     }
 
     @RequestMapping("/update")
     public String updateProduct(@RequestParam("id") Long id, Model model) {
+
         Product product = productService.findOne(id);
         model.addAttribute("product", product);
 
@@ -72,18 +71,15 @@ public class ProductController {
 
     @RequestMapping(value="/update", method=RequestMethod.POST)
     public String updateProductPost(@ModelAttribute("product") Product product, ModelMap model) {
-//        productService.save(product);
-        productService.updateProduct(product);
 
+        productService.updateProduct(product);
         model.addAttribute("success", "Product " + product.getTitle()	+ " updated successfully");
+
         return "redirect:/products/detail?id="+ product.getId();
     }
 
     @RequestMapping(value="/remove", method=RequestMethod.POST)
-    public String remove(
-            @ModelAttribute("id") String id, ModelMap model
-    ) {
-
+    public String removeProduct(@ModelAttribute("id") String id, ModelMap model) {
 
         productService.removeOne(Long.parseLong(id.substring(11)));
         List<Product> productList = productService.findAll();
