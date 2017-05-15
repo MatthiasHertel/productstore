@@ -104,7 +104,10 @@ public class ProductControllerTest {
      */
     @Test
     public void addProduct() throws Exception {
-
+        Assert.assertEquals(productController.addProduct(model), "product/add");
+        Assert.assertNotNull(model.get("product"));
+//        Assert.assertFalse((Boolean)model.get("edit"));
+//        Assert.assertEquals(((Product)model.get("employee")).getId(), 0);
     }
 
     /**
