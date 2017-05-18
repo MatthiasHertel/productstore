@@ -145,7 +145,7 @@ public class ProductControllerTest {
     public void updateProductPost() throws Exception {
         when(result.hasErrors()).thenReturn(false);
         doNothing().when(productService).updateProduct(any(Product.class));
-        Assert.assertEquals(productController.updateProductPost(products.get(2), model), "redirect:/products/detail?id=1");
+        Assert.assertEquals(productController.updateProductPost(products.get(0), model), "redirect:/products/detail?id=1");
         Assert.assertEquals(model.get("success"), "Product Title1 updated successfully");
     }
 
