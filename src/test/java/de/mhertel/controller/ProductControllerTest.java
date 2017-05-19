@@ -3,6 +3,7 @@ package de.mhertel.controller;
 import de.mhertel.domain.Product;
 import de.mhertel.service.ProductService;
 import de.mhertel.utility.ProductNotFoundException;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +18,6 @@ import org.springframework.validation.BindingResult;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.*;
 
@@ -45,8 +45,11 @@ public class ProductControllerTest {
         products = getProductList();
     }
 
+
     /**
-     * Seeding some dummy-Data for tests.
+     * Seeding some hardcode-Data for testsuite.
+     *
+     * @return List<Product>
      */
     public List<Product> getProductList(){
         Product p1 = new Product();
@@ -85,7 +88,6 @@ public class ProductControllerTest {
         return products;
     }
 
-
     /**
      * Test method - list all existing products.
      * @throws Exception
@@ -106,8 +108,8 @@ public class ProductControllerTest {
     public void addProduct() throws Exception {
         Assert.assertEquals(productController.addProduct(model), "product/add");
         Assert.assertNotNull(model.get("product"));
-//        Assert.assertFalse((Boolean)model.get("edit"));
-//        Assert.assertEquals(((Product)model.get("employee")).getId(), 0);
+        Assert.assertFalse((Boolean)model.get("edit"));
+        Assert.assertEquals(((Product)model.get("product")).getId(), null);
     }
 
     /**
@@ -116,7 +118,10 @@ public class ProductControllerTest {
      */
     @Test
     public void addProductPost() throws Exception {
-
+        when(result.hasErrors()).thenReturn(false);
+        doNothing().when(productService).saveProduct(any(Product.class));
+        Assert.assertEquals(productController.addProductPost(products.get(0), result, model), "redirect:/products/list");
+        Assert.assertEquals(model.get("success"), "Product Title1 created successfully");
     }
 
     /**
@@ -134,7 +139,12 @@ public class ProductControllerTest {
      */
     @Test
     public void updateProduct() throws Exception {
-
+        Product product = products.get(0);
+        when(productService.findOne(anyLong())).thenReturn(product);
+        Assert.assertEquals(productController.updateProduct(anyLong(), model), "product/update");
+        Assert.assertNotNull(model.get("product"));
+        Assert.assertTrue((Boolean)model.get("edit"));
+        Assert.assertEquals(((Product)model.get("product")).getId(), new Long(1));
     }
 
     /**
@@ -156,10 +166,6 @@ public class ProductControllerTest {
     @Test
     public void removeProduct() throws Exception {
         doNothing().when(productService).removeOne(anyLong());
-        Assert.assertEquals(productController.removeProduct("123456782343", model), "redirect:/products/list");
+        Assert.assertEquals(productController.removeProduct("1", model), "redirect:/products/list");
     }
-
-
-
-
 }
