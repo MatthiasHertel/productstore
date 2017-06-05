@@ -2,7 +2,7 @@
 
 **Requirement Type: ** Non-Functional - Look and Feel
 
-**Use-Case:** - Profilaktionen
+**Use-Case:** #4 User-Profil
 
 ---
 
