@@ -1,0 +1,2 @@
+﻿# , Name, Short Description,Attachment,Versioning (Git), Author, Datum, Priority, Requirement Type, Event/Use-Case, Customer Satisfaction, Customer Dissatisfaction, Person Responsible
+20,Scalability,Es sollte eine horizontale Skalierbarkeit der Softwarearchitektur geben.,,https://github.com/MatthiasHertel/productstore/commits/master/requirements/non-functional/performance/%2320_scalability.md, Matthias Hertel,04.06.2017,3 - mittel, Non-Functional Performance, - ,,, Matthias Hertel
