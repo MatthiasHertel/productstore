@@ -29,7 +29,7 @@ Matthias Hertel
 ---
 **Kurzbeschreibung:**
 
-Die Software sollte eine Volltextsuche implementiert haben.
+Die Software **sollte** eine Volltextsuche implementiert haben.
 
 **Beschreibung:**
 
