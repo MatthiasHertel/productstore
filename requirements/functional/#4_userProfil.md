@@ -112,6 +112,7 @@ Verifizierung der Zahlungsmoeglichkeiten
 - Requirements:
   - #1
   - #2
+  - #11 Profilpagelayout
 
 
 ---
