@@ -30,11 +30,10 @@ Matthias Hertel
 ---
 **Kurzbeschreibung:**
 
-Struktur der Navbar.
+Menüstruktur der Navbar.
 
 **Beschreibung:**
 
-Hier wird das Gridlayout der Website definiert.
 
 - fixed Navbar
   - 100%width
