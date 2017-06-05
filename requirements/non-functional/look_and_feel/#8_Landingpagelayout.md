@@ -2,7 +2,7 @@
 
 **Requirement Type: ** Non-Functional - Look and Feel
 
-**Use-Case:** - Produkte finden
+**Use-Case:** - #21 Produktesuchen
 
 ---
 
@@ -30,7 +30,7 @@ Matthias Hertel
 ---
 **Kurzbeschreibung:**
 
-Layout der Landingpage
+Layout der Landingpage.
 
 **Beschreibung:**
 
