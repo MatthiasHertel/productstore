@@ -30,7 +30,7 @@ Matthias Hertel
 ---
 **Kurzbeschreibung:**
 
-Der administrative User **muss** die Accountsmanagen koenenn.
+Der administrative User **muss** die Accounts managen können.
 
 **Beschreibung:**
 
