@@ -29,7 +29,7 @@ Matthias Hertel
 ---
 **Kurzbeschreibung:**
 
-Der User **muss** die Produkte suchen koennen.
+Der User **muss** die Produkte suchen können.
 
 **Beschreibung:**
 
