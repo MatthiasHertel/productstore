@@ -29,7 +29,7 @@ Matthias Hertel
 ---
 **Kurzbeschreibung:**
 
-Der Besucher **muss** die Moeglichkeit haben sich auf der Website zu registrieren.
+Der Besucher **muss** die Möglichkeit haben sich auf der Website zu registrieren.
 
 **Beschreibung:**
 
