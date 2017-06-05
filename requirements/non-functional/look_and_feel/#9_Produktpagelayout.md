@@ -2,7 +2,7 @@
 
 **Requirement Type: ** Non-Functional - Look and Feel
 
-**Use-Case:** - Produkt Einzelansicht
+**Use-Case:** #13 Produktaktionen
 
 ---
 
