@@ -2,7 +2,7 @@
 
 **Requirement Type: ** Non-Functional - Look and Feel
 
-**Use-Case:** - Warenkorbaktionen
+**Use-Case:** - #xx Warenkorbaktionen
 
 ---
 
@@ -30,11 +30,11 @@ Matthias Hertel
 ---
 **Kurzbeschreibung:**
 
-Layout des Warenkorbaktionspanel
+Layout des Warenkorpage.
 
 **Beschreibung:**
 
-Hier wird das Layout der Produktpage definiert.
+Hier wird das Layout der Warenkorbpage definiert.
 
 Sektionen:
 - Produkte - Anzahl - Aktionen
