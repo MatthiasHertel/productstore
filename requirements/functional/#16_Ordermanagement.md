@@ -32,7 +32,7 @@ Matthias Hertel
 ---
 **Kurzbeschreibung:**
 
-Der administrative User **muss** die Bestellungen managen koennen.
+Der administrative User **muss** die Bestellungen managen können.
 
 **Beschreibung:**
 
