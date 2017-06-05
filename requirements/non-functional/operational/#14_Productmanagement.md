@@ -1,8 +1,8 @@
-**Requirement ID: ** #13
+**Requirement ID: ** #14
 
 **Requirement Type: ** Functional Data Requirement
 
-**Use-Case:** #13 Produktaktionen
+**Use-Case:** #14 Neue Produkte einpflegen
 
 ---
 **Erfassungsdatum:**
@@ -20,6 +20,8 @@ Matthias Hertel
 **Kategorie:**
 
 - Produkt Modell
+- User Modell
+- Role Modell
 
 **Gewichtung:**
 
@@ -29,25 +31,27 @@ Matthias Hertel
 ---
 **Kurzbeschreibung:**
 
-Der User **muss** folgende Produktaktionen ausfuehren koenenn.
+Der administrative User **muss** neue Produkte in das System einpflegen koennen.
 
 **Beschreibung:**
 
-1. Produkt Einzelansicht ansehen.
-2. Produkt in Warenkorb legen
-3. Produkt aus Warenkorb entfernen.
-4. Produkt vormerken wenn nicht verfuegbar.
+folgende Aktionen muessen implementiert werden.
+
+- es muessen neue Produkte einzupflegen sein.
+- es muessen Produkte geloescht werden koennen.
+- es muessen Produkte zu editieren sein.
+
 
 
 ---
 **Referenz auf den Use Case:**
 
-#13 Produktaktionen
+#14 Neue Produkte einpflegen
 
 **Referenz auf sonstige Dokumente:**
 
 
-- weitere DB-Schema: Product, User, Role, Cart
+- weitere DB-Schema: Product
 
 
 
@@ -60,7 +64,7 @@ Der User **muss** folgende Produktaktionen ausfuehren koenenn.
 
 **Abnahmekriterium des Requirements:**
 
-fertige Produktaktionen
+fertige Crud Anwendung.
 
 
 ---
@@ -82,28 +86,26 @@ fertige Produktaktionen
 **Abhängigkeiten:**
 
 - Datenbankschema (User)
-- Datenbankschema (Role)
-- Datenbankschema (Profil)
-- Datenbankschema (Warenkorb)
 - Datenbankschema (Produkt)
 
 - Requirements:
   - #1
   - #2
   - #4
-  - #9 Produktpagelayout
-  - #10 Warenkorbpagelayout
+  - #12 Produkt
+
 
 
 ---
 **juristische Relevanz:**
 
-- Verwendung personenbezogener Daten
+- keine
 
 
 ---
 **sonstige Anmerkungen:**
 
+- keine
 
 
 

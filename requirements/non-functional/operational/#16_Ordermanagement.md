@@ -1,8 +1,8 @@
-**Requirement ID: ** #13
+**Requirement ID: ** #16
 
 **Requirement Type: ** Functional Data Requirement
 
-**Use-Case:** #13 Produktaktionen
+**Use-Case:** #16 administratives Ordermanagement
 
 ---
 **Erfassungsdatum:**
@@ -19,7 +19,10 @@ Matthias Hertel
 
 **Kategorie:**
 
-- Produkt Modell
+- User Modell
+- Role Modell
+- Product Modell
+- Order Modell
 
 **Gewichtung:**
 
@@ -29,26 +32,24 @@ Matthias Hertel
 ---
 **Kurzbeschreibung:**
 
-Der User **muss** folgende Produktaktionen ausfuehren koenenn.
+Der administrative User **muss** die Bestellungen managen koennen.
 
 **Beschreibung:**
 
-1. Produkt Einzelansicht ansehen.
-2. Produkt in Warenkorb legen
-3. Produkt aus Warenkorb entfernen.
-4. Produkt vormerken wenn nicht verfuegbar.
+folgende Aktionen muessen implementiert werden.
+
+- Crud Operationen auf dem Order-Modell
 
 
 ---
 **Referenz auf den Use Case:**
 
-#13 Produktaktionen
+#16 administratives Ordermanagement
 
 **Referenz auf sonstige Dokumente:**
 
 
-- weitere DB-Schema: Product, User, Role, Cart
-
+- weitere DB-Schema: User
 
 
 ---
@@ -60,7 +61,7 @@ Der User **muss** folgende Produktaktionen ausfuehren koenenn.
 
 **Abnahmekriterium des Requirements:**
 
-fertige Produktaktionen
+fertige Crud Anwendung.
 
 
 ---
@@ -82,17 +83,14 @@ fertige Produktaktionen
 **Abhängigkeiten:**
 
 - Datenbankschema (User)
-- Datenbankschema (Role)
-- Datenbankschema (Profil)
-- Datenbankschema (Warenkorb)
-- Datenbankschema (Produkt)
+
 
 - Requirements:
   - #1
   - #2
   - #4
-  - #9 Produktpagelayout
-  - #10 Warenkorbpagelayout
+  - # Ordermanagement
+
 
 
 ---
@@ -104,6 +102,7 @@ fertige Produktaktionen
 ---
 **sonstige Anmerkungen:**
 
+- keine
 
 
 
