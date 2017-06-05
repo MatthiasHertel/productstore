@@ -99,7 +99,7 @@ fertiges Produktmodell
   - #1
   - #2
   - #4
-  - #9 Profilpagelayout
+  - #9 Produktpagelayout
 
 
 ---
