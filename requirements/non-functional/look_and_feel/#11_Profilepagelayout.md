@@ -34,7 +34,7 @@ Layout der Profilpage
 
 **Beschreibung:**
 
-Layout der Profilpage.
+Hier wird das Layout der Profilpage definiert.
 
 
 ---
