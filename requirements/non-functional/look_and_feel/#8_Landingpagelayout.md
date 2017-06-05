@@ -80,7 +80,8 @@ Wireframe Landingpage
 ---
 **Abhängigkeiten:**
 
-- keine
+- #6
+- #7
 
 ---
 **juristische Relevanz:**
